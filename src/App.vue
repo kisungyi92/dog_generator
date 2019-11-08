@@ -228,6 +228,7 @@
       drawer: null,
       items: [
         { icon: 'mdi-keyboard', text: 'Deployment', link: '/generator/k8s/deployment' },
+        { icon: 'mdi-keyboard', text: 'Service', link: '/generator/k8s/service' }
         /*{ icon: 'mdi-contacts', text: 'Contacts' },
         { icon: 'mdi-history', text: 'Frequently contacted' },
         { icon: 'mdi-content-copy', text: 'Duplicates' },

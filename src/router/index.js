@@ -21,6 +21,10 @@ const routes = [
   {
     path: '/generator/k8s/deployment',
     component: () => import('../views/generator/k8s/deployment.vue')
+  },
+  {
+    path: '/generator/k8s/service',
+    component: () => import('../views/generator/k8s/service.vue')
   }
 ];
 

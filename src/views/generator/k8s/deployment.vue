@@ -51,7 +51,7 @@
                                 <v-container fluid>
                                     <v-row>
                                         <v-col no-gutters>
-                                            {{type}} <v-btn @click="addContainer(type)">ADD</v-btn>
+                                            {{type}}
                                         </v-col>
                                     </v-row>
                                     <v-row>
@@ -108,7 +108,7 @@
                                                     </v-row>
                                                     <v-row>
                                                         <v-col no-gutters>
-                                                            Environments <v-btn @click="addEnv(item)">ADD</v-btn>
+                                                            Environments
                                                         </v-col>
                                                     </v-row>
                                                     <v-row>
@@ -134,12 +134,22 @@
                                                             </v-card>
                                                         </v-col>
                                                     </v-row>
+                                                    <v-row>
+                                                        <v-col no-gutters>
+                                                            <v-btn @click="addEnv(item)">ADD</v-btn>
+                                                        </v-col>
+                                                    </v-row>
                                                 </v-container>
 
                                                 <v-card-actions>
                                                     <v-btn text @click="deleteContainer(type, item)">DELETE</v-btn>
                                                 </v-card-actions>
                                             </v-card>
+                                        </v-col>
+                                    </v-row>
+                                    <v-row>
+                                        <v-col no-gutters>
+                                            <v-btn @click="addContainer(type)">ADD</v-btn>
                                         </v-col>
                                     </v-row>
                                 </v-container>
