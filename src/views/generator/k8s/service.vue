@@ -55,13 +55,16 @@
                                                 <v-container fluid>
                                                     <v-row cols="10">
                                                         <v-col no-gutters>
-                                                            <v-text-field
-                                                                    :type="'text'"
-                                                                    label="name"
-                                                                    v-model="item.name"
-                                                                    class="input-group--focused"
-                                                                    required
-                                                            ></v-text-field>
+                                                            <v-list-item-content>
+                                                                <v-text-field
+                                                                        :type="'text'"
+                                                                        label="name"
+                                                                        v-model="item.name"
+                                                                        class="input-group--focused"
+                                                                        required
+                                                                ></v-text-field>
+                                                                <v-select v-model="item.protocol" :items="protocols"></v-select>
+                                                            </v-list-item-content>
                                                         </v-col>
                                                         <v-col cols="2">
                                                             <v-btn @click="deletePort(item)">DELETE</v-btn>
@@ -70,11 +73,17 @@
                                                     <v-row>
                                                         <v-col no-gutters>
                                                             <v-list-item-content>
-                                                                <v-select v-model="item.protocol" :items="protocols"></v-select>
                                                                 <v-text-field
                                                                         :type="'text'"
                                                                         label="port"
                                                                         v-model="item.port"
+                                                                        class="input-group--focused"
+                                                                        required
+                                                                ></v-text-field>
+                                                                <v-text-field
+                                                                        :type="'text'"
+                                                                        label="targetPort"
+                                                                        v-model="item.targetPort"
                                                                         class="input-group--focused"
                                                                         required
                                                                 ></v-text-field>
@@ -127,9 +136,10 @@
     function defaultPort() {
         return {
             id: uuidv4(),
-            name: 'HTTP',
+            name: 'http',
             protocol: 'TCP',
             port: '80',
+            targetPort: '80'
         }
     }
 
@@ -220,6 +230,7 @@
                 generated.spec.ports = deepCopy(this.settings.ports);
                 for(let item of generated.spec.ports) {
                     item.port = parseInt(item.port);
+                    item.targetPort = parseInt(item.targetPort);
                     delete item['id'];
                 }
 
