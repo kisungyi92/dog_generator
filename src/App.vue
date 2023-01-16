@@ -92,15 +92,16 @@
         <v-btn
               icon
               large
+              href="https://app.datadoghq.com"
       >
         <v-avatar
                 size="32px"
                 item
         >
-          <v-img
-                  src="../src/assets/datadog.png"
-                  alt="Vuetify"
-          /></v-avatar>
+        <v-img
+                src="../src/assets/datadog.png"
+                alt="Vuetify"
+        /></v-avatar>
       </v-btn>
       <v-text>
         Datadog YAML Generator v0.1
