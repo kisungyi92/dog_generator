@@ -25,6 +25,14 @@ const routes = [
   {
     path: '/generator/k8s/service',
     component: () => import('../views/generator/k8s/service.vue')
+  },
+  {
+    path: '/generator/k8s/dd_values',
+    component: () => import('../views/generator/k8s/dd_values.vue')
+  },
+  {
+    path: '/generator/k8s/helm',
+    component: () => import('../views/generator/k8s/helm.vue')
   }
 ];
 

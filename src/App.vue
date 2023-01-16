@@ -81,25 +81,36 @@
     <v-app-bar
             :clipped-left="$vuetify.breakpoint.lgAndUp"
             app
-            color="blue darken-3"
+            color="deep-purple"
             dark
     >
       <v-toolbar-title
-              style="width: 300px"
+              style="width: 1000px"
               class="ml-0 pl-4"
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-        <span class="hidden-sm-and-down">Auto Generator</span>
+        <v-btn
+              icon
+              large
+      >
+        <v-avatar
+                size="32px"
+                item
+        >
+          <v-img
+                  src="../src/assets/datadog.png"
+                  alt="Vuetify"
+          /></v-avatar>
+      </v-btn>
+      <v-text>
+        Datadog YAML Generator v0.1
+      </v-text>
+      <v-text style="font-size: 0.6em;">
+        - Copyrights reserved by Kisung Yi
+      </v-text>
       </v-toolbar-title>
-      <v-text-field
-              flat
-              solo-inverted
-              hide-details
-              prepend-inner-icon="mdi-magnify"
-              label="Search"
-              class="hidden-sm-and-down"
-      />
       <v-spacer />
+
       <!--
       <v-btn icon>
         <v-icon>mdi-apps</v-icon>
@@ -227,9 +238,12 @@
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'mdi-keyboard', text: 'Deployment', link: '/generator/k8s/deployment' },
-        { icon: 'mdi-keyboard', text: 'Service', link: '/generator/k8s/service' },
-        { icon: 'mdi-keyboard', text: 'Ingress', link: '/generator/k8s/ingress' },
+        { icon: 'mdi-keyboard', text: 'Operator', link: '/generator/k8s/operator' },
+        { icon: 'mdi-keyboard', text: 'Deployment', link: '/generator/k8s/deployment' }, 
+        //{ icon: 'mdi-keyboard', text: 'Service', link: '/generator/k8s/service' },
+        //{ icon: 'mdi-keyboard', text: 'Ingress', link: '/generator/k8s/ingress' },
+        //{ icon: 'mdi-keyboard', text: 'dd_values', link: '/generator/k8s/dd_values' },
+        { icon: 'mdi-keyboard', text: 'Helm', link: '/generator/k8s/helm' }
         /*{ icon: 'mdi-contacts', text: 'Contacts' },
         { icon: 'mdi-history', text: 'Frequently contacted' },
         { icon: 'mdi-content-copy', text: 'Duplicates' },

@@ -1,6 +1,6 @@
 <template>
     <v-container fluid fill-height>
-        <v-row style="height: 100%; padding-left: 24px">
+        <v-row style="height: 100%; padding-left: 30px">
             <v-col>
                 <v-form>
                     <v-container fluid fill-height justify-start align-start>
@@ -8,7 +8,7 @@
                             <v-col no-gutters>
                                 <v-text-field
                                         :type="'text'"
-                                        label="name"
+                                        label="Datadog agent name"
                                         v-model="settings.name"
                                         class="input-group--focused"
                                         required
@@ -62,7 +62,6 @@
                                                     class="mx-auto"
                                                     outlined
                                             >
-
                                                 <v-container fluid>
                                                     <v-row>
                                                         <v-col no-gutters>
@@ -161,7 +160,7 @@
             <v-col no-gutters>
                 <v-container fluid fill-height class="generated_container">
                     <div class="generated_btn-bar">
-                        <v-btn @click="loadFrom(genout)">Load From YAML</v-btn>
+                        <v-btn @click="loadFrom(genout)">Load From FAKE YAML</v-btn>
                     </div>
                     <textarea v-model="genout" class="generated_output">
                     </textarea>
@@ -175,40 +174,11 @@
     import jsyaml from 'js-yaml'
 
     const template = {
-        "apiVersion": "extensions/v1beta1",
-        "metadata": {
-            "annotations": null,
-            "labels": {
-            },
-        },
-        "spec": {
-            "selector": {
-                "matchLabels": {
-                }
-            },
-            "strategy": {
-                "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 1
-                },
-                "type": "RollingUpdate"
-            },
-            "template": {
-                "metadata": {
-                    "labels": {
-                    }
-                },
-                "spec": {
-                    "containers": [],
-                    "initContainers": [],
-                    "dnsPolicy": "ClusterFirst",
-                    "restartPolicy": "Always",
-                    "schedulerName": "default-scheduler",
-                    "securityContext": {},
-                    "terminationGracePeriodSeconds": 30
-                }
-            }
-        }
+        "nameOverride": null,
+        "fullnameOverride": null,
+        "targetSystem": "linux",
+        "commonLabels": {},
+        "registry": "gcr.io/datadoghq"
     };
 
     function newContainer() {
@@ -339,10 +309,8 @@
                             cmd: item.cmd || undefined,
                             args: args,
                             terminationMessagePath: '/dev/termination-log',
-                            terminationMessagePolicy: 'File',
-                            what_is: 'test'
+                            terminationMessagePolicy: 'File'
                         });
-                        
                     }
                 }
 
